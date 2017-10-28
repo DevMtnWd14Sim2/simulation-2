@@ -29,8 +29,20 @@ header .dash-tag {
 
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
   width: 100vw; }
+
+.btn-light {
+  width: 118px;
+  height: 35px;
+  background-color: #8aea92;
+  border-style: none; }
+
+.btn-dark {
+  width: 118px;
+  height: 35px;
+  background-color: #3b5249;
+  border-style: none; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -94,8 +106,33 @@ header .dash-tag {
   border-style: none; }
 
 .dashboard-container {
+  height: 100vh;
+  width: 100%; }
+
+.form-body {
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
+  max-width: 850px; }
+
+.divider {
+  display: block;
+  width: 95%;
+  height: 1px;
+  background: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto; }
+
+.form-reg-body {
+  display: flex;
+  flex-direction: column; }
+
+.desired-rent p {
+  display: inline-block; }
+
+.desired-rent input {
+  display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */
