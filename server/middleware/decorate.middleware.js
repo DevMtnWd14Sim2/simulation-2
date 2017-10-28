@@ -12,7 +12,7 @@ function decorate(app) {
     app.use(session({
         secret: 'Fly you fools',
         resave: false,
-        saveUninitialized: true
+        saveUninitialized: true,
     }));
     app.use(express.static('./build'));
 }
