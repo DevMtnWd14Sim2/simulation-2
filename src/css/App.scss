@@ -1,8 +1,23 @@
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+}
 
+
+
+.btn-light{
+  width: 118px;
+  height: 35px;
+  background-color: #8aea92;
+  border-style: none;
+}
+
+.btn-dark{
+  width: 118px;
+  height: 35px;
+  background-color: #3b5249;
+  border-style: none;
 }
 
 .App-logo {

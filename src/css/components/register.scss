@@ -1,0 +1,23 @@
+.divider{
+    display: block;
+    width: 95%;
+    height: 1px;
+    background: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-reg-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.desired-rent p{
+    display: inline-block;
+}
+
+.desired-rent input{
+    display: inline-block;
+}
