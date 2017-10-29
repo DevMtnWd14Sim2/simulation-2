@@ -12,11 +12,11 @@ passport.use('login', new Strategy(
             }
             if (!user) {
                 console.error('That username does not exist.');
-                return done(null, false);
+                return done(null, false, {message: 'That username does not exist.'});
             }
             if (!user.verifyPassword(password)) {
                 console.error('That password is incorrect.');
-                return done(null, false);
+                return done(null, false, {message: 'That password is incorrect.'});
             }
             console.log(chalk.green('Login was successful!'))
             return done(null, user);
@@ -33,7 +33,7 @@ passport.use('register', new Strategy(
             }
             if (user) {
                 console.error('That username already exists.');
-                return done(null, false);
+                return done(null, false, {message: 'That username already exists.'});
             }
             else {
                 const newUser = new User();
@@ -41,7 +41,7 @@ passport.use('register', new Strategy(
                 newUser.password = createHash(password);
                 newUser.save(err => {
                     if (err) {
-                        console.error('Error in saving new user.');
+                        console.error(`Error in saving new user: ${err}.`);
                         throw err;
                     }
                     console.log(chalk.green('Registration was successful!'));

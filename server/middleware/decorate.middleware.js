@@ -6,7 +6,6 @@ const session = require('express-session');
 const passport = require('passport');
 
 function decorate(app) {
-
     app.use(bodyParser.json());
     app.use(helmet());
     app.use(cors());

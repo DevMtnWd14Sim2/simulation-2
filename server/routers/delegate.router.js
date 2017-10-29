@@ -4,7 +4,6 @@ const dashboardRouter = require('./dashboard.router');
 const wizardRouter = require('./wizard.router');
 
 function delegate(app) {
-
     app.use(express.static('./build'));
 
     app.use('/auth', authRouter);

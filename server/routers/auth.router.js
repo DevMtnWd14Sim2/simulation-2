@@ -6,7 +6,7 @@ authRouter.post('/login',
     passport.authenticate('login', {
         successRedirect: '/',
         failureRedirect: '/login',
-        failureFlash: true
+        failureFlash: true,
     })
 );
 
