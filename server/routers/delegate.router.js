@@ -6,9 +6,9 @@ const wizardRouter = require('./wizard.router');
 function delegate(app) {
     app.use(express.static('./build'));
 
-    app.use('/auth', authRouter);
-    app.use('/dashboard', dashboardRouter);
-    app.use('/wizard', wizardRouter);
+    app.use('/api/auth', authRouter);
+    app.use('/api/dashboard', dashboardRouter);
+    app.use('/api/wizard', wizardRouter);
 
     return app;
 }

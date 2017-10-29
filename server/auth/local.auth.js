@@ -8,7 +8,7 @@ passport.use('login', new Strategy(
         User.findByUsername( username, (err, user) => {
             if (err) {
                 console.error(`Error in login: ${err}.`);
-                return done(err);
+                return done(err, false, {message: `Error in login: ${err}.`});
             }
             if (!user) {
                 console.error('That username does not exist.');
@@ -19,7 +19,7 @@ passport.use('login', new Strategy(
                 return done(null, false, {message: 'That password is incorrect.'});
             }
             console.log(chalk.green('Login was successful!'))
-            return done(null, user);
+            return done(null, user, {message: 'Login was successful!'});
         });
     }
 ));
@@ -29,7 +29,7 @@ passport.use('register', new Strategy(
         User.findByUsername( username, (err, user) => {
             if (err) {
                 console.error(`Error in registration: ${err}.`);
-                return done(err);
+                return done(err, false, {message: `Error in registration: ${err}.`});
             }
             if (user) {
                 console.error('That username already exists.');
@@ -45,7 +45,7 @@ passport.use('register', new Strategy(
                         throw err;
                     }
                     console.log(chalk.green('Registration was successful!'));
-                    return done(null, newUser);
+                    return done(null, newUser, {message: 'Registration was successful!'});
                 })
             }
         })
@@ -53,15 +53,15 @@ passport.use('register', new Strategy(
 ));
 
 passport.serializeUser((user, done) => {
-    return done(null, user.id);
+    return done(null, user.id, {message: 'User has been serialized.'});
 });
 
 passport.deserializeUser((user, done) => {
     User.findById(id, (err, user) => {
         if (err) {
             console.error(`Error in deserializing user: ${err}.`);
-            return done(err);
+            return done(err, false, {message: `Error in deserializing user: ${err}.`});
         }
-        return done(null, user);
+        return done(null, user, {message: 'User has been deserialized.'});
     });
 });

@@ -10,6 +10,12 @@ authRouter.post('/login',
     })
 );
 
-// add endpoint to register user?
+authRouter.post('/register',
+    passport.authenticate('register', {
+        successRedirect: '/',
+        failureRedirect: '/register',
+        failureFlash: true,
+    })
+);
 
 module.exports = authRouter;
