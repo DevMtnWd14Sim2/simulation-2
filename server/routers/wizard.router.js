@@ -9,8 +9,11 @@ wizardRouter.post('/create_property', (req, res) => {
     
     const { name, description, address, city, state, zip, image_url, loan_amnt, month_mortgage, desired_rent } = req.body;
     dbInstance.create_property([name, description, address, city, state, zip, image_url, loan_amnt, month_mortgage, desired_rent])
-        .then(r => res.status(200).send())
-        .catch(err => res.send(err));
+        .then( () => res.status(200).send())
+        .catch(err => {
+            console.error(`Error when creating property: ${err}.`);
+            res.send(err);
+        });
 });
 
 module.exports = wizardRouter;

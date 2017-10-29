@@ -5,14 +5,15 @@ let db;
 
 massive(connectionString)
     .then(dbInstance => db = dbInstance)
-    .catch(err => {throw Error('There was an error with massive!')});
+    .catch(err => {
+        console.error('There was an error with massive.');
+        throw err;
+    });
 
 function getDb() {
-
     if (!db) {
-        console.Error('We haven\'t connected to the database yet!')
+        console.error('We haven\'t connected to the database yet!');
     }
-
     return db;
 }
 
