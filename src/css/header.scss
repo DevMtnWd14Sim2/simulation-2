@@ -1,8 +1,6 @@
 .header-container{
     width: 100%;
     background: #4A9875;
-    padding-left: 20%;
-    padding-right: 20%;
 }
 
 header{
@@ -13,6 +11,8 @@ header{
     max-width: 760px;
     height: 75px;
     color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-title {
