@@ -159,6 +159,28 @@ header .dash-tag {
   justify-content: space-between;
   align-items: center; }
 
+.drk-btn {
+  background-color: #3b5249;
+  border-style: none;
+  padding: 10px 30px;
+  border-radius: 3px; }
+
+.drk-btn a {
+  font-size: 20px;
+  color: white;
+  font-style: normal; }
+
+.light-btn {
+  background-color: #80EA9B;
+  border-style: none;
+  padding: 10px 30px;
+  border-radius: 3px; }
+
+.light-btn a {
+  font-size: 20px;
+  color: #3d3d3d;
+  font-style: normal; }
+
 .step-header button {
   background-color: #fec2c2;
   border: none;
@@ -167,7 +189,9 @@ header .dash-tag {
 
 .step-tag {
   font-size: 20px;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto; }
 
 .form-label {
   display: flex; }

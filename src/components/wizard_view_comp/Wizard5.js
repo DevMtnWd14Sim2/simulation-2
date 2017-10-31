@@ -27,8 +27,8 @@ export default class Wizard5 extends React.Component {
 
         
         <div className="step__btn_container">
-            <button><Link to="/wizard/4"> Previous Step </Link> </button>
-            <button><Link to="/wizard/5"> Next Step </Link> </button>
+            <button className="drk-btn"><Link to="/wizard/4"> Previous Step </Link> </button>
+            <button className="light-btn"><Link to="/wizard/5"> Next Step </Link> </button>
         </div>
              
         </form>

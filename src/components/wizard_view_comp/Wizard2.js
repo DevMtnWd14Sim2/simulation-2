@@ -28,8 +28,8 @@ export default class Wizard2 extends React.Component {
         <div className="form-label">Zip</div>
               <input className="wizard-input-short" type = "text" />   
         <div className="step__btn_container">
-            <button><Link to="/wizard/1"> Previous Step </Link> </button>
-            <button><Link to="/wizard/3"> Next Step </Link> </button>
+            <button className="drk-btn"><Link to="/wizard/1"> Previous Step </Link> </button>
+            <button className="drk-btn"> <Link to="/wizard/3"> Next Step </Link> </button>
         </div>
              
         </form>

@@ -10,10 +10,10 @@ export default class AuthView extends React.Component {
         <img className="auth-logo" src={AuthLogo} />
         <form>
           <div className="form-label">Username</div>
-              <input className="auth-type" type = "text" />
+              <input className="auth-type" type = "text" required/>
 
           <div className="form-label">Password</div>
-              <input className="auth-type" type = "password" />
+              <input className="auth-type" type = "password" required/>
 
           <div className="button-set">
             <button className="login-btn"><Link to="/dashboard">Login</Link></button>
