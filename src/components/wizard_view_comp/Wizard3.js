@@ -13,7 +13,7 @@ export default class Wizard3 extends React.Component {
         <div className="StepHighlight__container">
           <img src ={StepProgress2} />
           <img src ={StepProgress2} />
-          <img src ={StepProgress1} />
+          <img className="animateOrb" src ={StepProgress1} />
           <img src ={StepProgress0} />
           <img src ={StepProgress0} />
         </div>
@@ -25,8 +25,12 @@ export default class Wizard3 extends React.Component {
         </div>
         
         <div className="form-label">Image URL</div>
-        <input className="wizard-input-long" type = "text" />
+        <input className="wizard-input-long" type = "text" required/>
+        <div className="form-label">Upload Picture</div>
         
+
+<input type="file" name="datafile" size="40" /> 
+
 
 
 

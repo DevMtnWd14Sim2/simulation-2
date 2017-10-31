@@ -14,17 +14,17 @@ export default class Wizard4 extends React.Component {
           <img src ={StepProgress2} />
           <img src ={StepProgress2} />
           <img src ={StepProgress2} />
-          <img src ={StepProgress1} />
+          <img className="animateOrb" src ={StepProgress1} />
           <img src ={StepProgress0} />
         </div>
         <form>
         
 
         <div className="form-label">Loan Amount</div>
-              <input className="wizard-input-long" type = "text" />
+              <input className="wizard-input-long" type = "text" required/>
 
         <div className="form-label">Monthly Mortage</div>
-              <input className="wizard-input-long" type = "text" />
+              <input className="wizard-input-long" type = "text" required/>
 
 
 

@@ -1,6 +1,7 @@
 .divider{
     display: block;
-    width: 95%;
+    width: 100%;
+    max-width: 735px;
     height: 1px;
     background: black;
     margin-top: 10px;
@@ -10,14 +11,66 @@
 }
 
 .form-reg-body {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    
 }
 
-.desired-rent p{
-    display: inline-block;
+
+
+.filter-container input{
+    max-width: 85px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 18px;
+    border: 1px solid #519872;
+    margin-left: 5px;
+    margin-right: 20px;
 }
 
-.desired-rent input{
-    display: inline-block;
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
 }
+
+.filter-btn {
+    width: 70px;
+    height: 37px;
+    background-color: #8aea92;
+    border: none;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.reset-btn {
+    width: 70px;
+    height: 37px;
+    background-color: #3B5249;
+    border: none;
+    font-size: 18px;
+  
+    color: white;
+}
+
+.add-property-btn {
+    border: none;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #8aea92;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.add-property-btn a {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+} 

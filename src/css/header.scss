@@ -25,16 +25,16 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 20px;
+    width: 100%;
+    max-width: 316px;
 }
 
-header .houser-tag {
-    display: inline-block;
-    font-weight: bold;
-   
+.header-title img {
+    width: 100%;
 }
 
-header .dash-tag {
-    display: inline-block;
-    font-weight: lighter;
+.header-container a {
+    text-decoration: none;
+    color: white;
 }
+

@@ -15,20 +15,20 @@ export default class Wizard5 extends React.Component {
           <img src ={StepProgress2} />
           <img src ={StepProgress2} />
           <img src ={StepProgress2} />
-          <img src ={StepProgress0} />
+          <img className="animateOrb" src ={StepProgress1} />
         </div>
         <form>
         
 
         <div className="form-label">Desired Rent</div>
-              <input className="wizard-input-long" type = "text" />
+              <input className="wizard-input-long" type = "text" required/>
 
 
 
         
         <div className="step__btn_container">
             <button className="drk-btn"><Link to="/wizard/4"> Previous Step </Link> </button>
-            <button className="light-btn"><Link to="/wizard/5"> Next Step </Link> </button>
+            <button className="light-btn"><Link to="/dashboard"> Complete </Link> </button>
         </div>
              
         </form>

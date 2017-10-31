@@ -5,7 +5,7 @@ import Wizard2 from './wizard_view_comp/Wizard2';
 import Wizard3 from './wizard_view_comp/Wizard3';
 import Wizard4 from './wizard_view_comp/Wizard4';
 import Wizard5 from './wizard_view_comp/Wizard5';
-import {Route, Switch, HashRouter, BrowserRouter} from 'react-router-dom';
+import {Route, Switch, HashRouter, BrowserRouter, Link} from 'react-router-dom';
 
 export default class WizardView extends React.Component {
   render() {
@@ -13,7 +13,7 @@ export default class WizardView extends React.Component {
       <div className="wizard-view-container">
         <Header />
         <div className="form-body">
-        <div className="step-header"> <h2> Add new listing </h2> <button>Cancel</button> </div>
+        <div className="step-header"> <h2> Add new listing </h2> <button className="cancel-btn"><Link to="/dashboard/">Cancel </Link></button> </div>
         
         <Switch>
           <Route component={ Wizard1 } path="/wizard/1" exact />
