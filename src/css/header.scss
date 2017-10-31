@@ -1,18 +1,24 @@
 .header-container{
     width: 100%;
     background: #4A9875;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #4A9875;
-    max-width: 760px;
+    max-width: 850px;
+    width: 90%;
     height: 75px;
     color: white;
     margin-left: auto;
     margin-right: auto;
+    
+
 }
 
 .header-title {

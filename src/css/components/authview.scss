@@ -1,3 +1,14 @@
+.form-body-auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    width: 100%;
+    max-width: 600px;
+
+}
+
 .auth-logo {
     margin-left: auto;
     margin-right: auto;
@@ -7,11 +18,13 @@
 .auth-view-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
     background: white;
     max-width: 850px;
     padding: 50px;
+    height: 100%;
 }
 
 .auth-title-tag{
@@ -21,7 +34,6 @@
 }
 .auth-type{
     width: 100%;
-    max-width: 850px;
     height: 30px;
     border: 1px solid #519872;
     margin-bottom: 25px;
