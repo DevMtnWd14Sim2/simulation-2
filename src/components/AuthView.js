@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 
 import AuthLogo from '../img/svg/houser-auth-logo.svg';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { GET_LOGIN } from '../actions/action';
+
 
 // import { authenticateUser,  registerUser } from '../services/auth.services';
 
+ class AuthView extends Component {
+  constructor(props){
+    super(props);
+  }
 
-export default class AuthView extends React.Component {
+  submit(e) {
+    this.props.GET_LOGIN
+  }
+
+
   render() {
     return (
       <div className="auth-view-container">
@@ -30,3 +42,14 @@ export default class AuthView extends React.Component {
     );
   }
 }
+
+function mapStateToProps({ userNamePassword }) {
+  return { userNamePassword };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ GET_LOGIN })
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthView);
