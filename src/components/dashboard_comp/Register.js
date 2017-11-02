@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Register extends React.Component {
+  
   render() {
     return (
       <div className="register-container">
-        <form>
+        <form onSubmit={this.handleSubmit}>
         <div className="form-reg-body">
         <button className="add-property-btn"><Link to="/wizard/1"> Add new property </Link></button>
           <div className="filter-container">
