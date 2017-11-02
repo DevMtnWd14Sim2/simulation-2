@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { authenticateUser,  registerUser } from '../services/auth.services';
+// import { authenticateUser,  registerUser } from '../services/auth.services';
 
 export default class AuthView extends React.Component {
   render() {
