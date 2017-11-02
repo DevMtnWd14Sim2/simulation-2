@@ -4,7 +4,7 @@ const baseURL = '/api/wizard';
 function createProperty(property) {
     return axios
         .post(`${baseURL}/create_property`, property)
-        .then( () => res.send())
+        .then(res => res)
         .catch(err => {
             console.error(`Error connecting to server: ${err}.`);
             res.send(err);
