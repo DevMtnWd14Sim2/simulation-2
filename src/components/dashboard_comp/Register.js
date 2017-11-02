@@ -6,7 +6,7 @@ export default class Register extends React.Component {
   render() {
     return (
       <div className="register-container">
-        <form onSubmit={this.handleSubmit}>
+        <form>
         <div className="form-reg-body">
         <button className="add-property-btn"><Link to="/wizard/1"> Add new property </Link></button>
           <div className="filter-container">
