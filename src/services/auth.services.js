@@ -1,23 +1,23 @@
 const axios = require('axios');
 const baseURL = '/api/auth';
 
-function authenticateUser() {
+function authenticateUser(userObject) {
     return axios
         .post(`${baseURL}/login`, userObject)
-        .then( () => res.send())
+        .then(res => res)
         .catch(err => {
             console.error(`Error connecting to server: ${err}.`);
-            res.send(err);
+            throw err;
         });
 }
 
-function registerUser() {
+function registerUser(userObject) {
     return axios
         .post(`${baseURL}/register`, userObject)
-        .then( () => res.send())
+        .then(res => res)
         .catch(err => {
             console.error(`Error connecting to server: ${err}.`);
-            res.send(err);
+            throw err
         });
 }
 
