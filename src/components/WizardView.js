@@ -16,11 +16,11 @@ export default class WizardView extends React.Component {
         <div className="step-header"> <h2> Add new listing </h2> <button className="cancel-btn"><Link to="/dashboard/">Cancel </Link></button> </div>
         
         <Switch>
-          <Route component={ Wizard1 } path="/wizard/1" exact />
-          <Route component={ Wizard2 } path="/wizard/2" />
-          <Route component={ Wizard3 } path="/wizard/3" />
-          <Route component={ Wizard4 } path="/wizard/4" />
-          <Route component={ Wizard5 } path="/wizard/5" />
+          <Route component={ Wizard1 } path="/wizard/1" exact/>
+          <Route component={ Wizard2 } path="/wizard/2" exact/>
+          <Route component={ Wizard3 } path="/wizard/3" exact/>
+          <Route component={ Wizard4 } path="/wizard/4" exact/>
+          <Route component={ Wizard5 } path="/wizard/5" exact/>
         </Switch>
        
         </div>
