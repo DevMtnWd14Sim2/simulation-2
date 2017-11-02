@@ -1,11 +1,32 @@
+.form-body-auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-height: 100vh;
+    
+    width: 100%;
+    max-width: 600px;
+
+}
+
+.auth-logo {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 165px;
+    margin-bottom: 50px;
+}
+
 .auth-view-container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
     background: white;
     max-width: 850px;
-    padding: 50px;
+    height: 100vh;
 }
 
 .auth-title-tag{
@@ -15,7 +36,6 @@
 }
 .auth-type{
     width: 100%;
-    max-width: 850px;
     height: 30px;
     border: 1px solid #519872;
     margin-bottom: 25px;
@@ -25,21 +45,40 @@
 .button-set {
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    max-width: 290px;
     margin-left: auto;
     margin-right: auto;
 }
 .login-btn{
-    width: 118px;
-    height: 35px;
-    background-color: #8aea92;
+    width: 130px;
+    height: 40px;
+    background-color: #80EA9B;
     border-style: none;
+    text-decoration: none;
+}
+
+.login-btn a{
+    font-size: 14px;
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .reg-btn{
-    width: 118px;
-    height: 35px;
+    width: 130px;
+    height: 40px;
     background-color: #3b5249;
     border-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.reg-btn a{
+    font-size: 14px;
+    color: white;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 700;
 }
 
