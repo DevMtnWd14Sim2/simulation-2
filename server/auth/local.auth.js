@@ -2,10 +2,12 @@ const chalk = require('chalk');
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const createHash = require('../utils/hash.utils');
+const getDb = require('../database/bootstrap.database');
 
 passport.use('login', new Strategy(
     (username, password, done) => {
-        User.findByUsername( username, (err, user) => {
+        const db = getDb();
+        db.users.findOne( username, (err, user) => {
             if (err) {
                 console.error(`Error in login: ${err}.`);
                 return done(err, false, {message: `Error in login: ${err}.`});
@@ -26,7 +28,8 @@ passport.use('login', new Strategy(
 
 passport.use('register', new Strategy(
     (username, password, done) => {
-        User.findByUsername( username, (err, user) => {
+        const db = getDb();
+        db.users.findOne( username, (err, user) => {
             if (err) {
                 console.error(`Error in registration: ${err}.`);
                 return done(err, false, {message: `Error in registration: ${err}.`});
@@ -57,7 +60,8 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-    User.findById(id, (err, user) => {
+    const db = getDb();
+    db.users.findOne(id, (err, user) => {
         if (err) {
             console.error(`Error in deserializing user: ${err}.`);
             return done(err, false, {message: `Error in deserializing user: ${err}.`});
