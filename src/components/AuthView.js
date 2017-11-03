@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AuthLogo from '../img/svg/houser-auth-logo.svg';
 import { Link } from 'react-router-dom';
 
-// import { authenticateUser,  registerUser } from '../services/auth.services';
+import { authenticateUser,  registerUser } from '../services/auth.services';
 
 
 export default class AuthView extends React.Component {
@@ -20,8 +20,8 @@ export default class AuthView extends React.Component {
               <input className="auth-type" type = "password" required/>
 
           <div className="button-set">
-            <button className="login-btn"><Link to="/dashboard">Login</Link></button>
-            <button className="reg-btn"><Link to="/dashboard">Register</Link> </button>
+            <button className="login-btn">Login</button>
+            <button className="reg-btn">Register</button>
           </div>
           
         </form>

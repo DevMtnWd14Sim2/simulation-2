@@ -7,7 +7,7 @@ dashboardRouter.get('/get_all_properties', (req, res) => {
     dbInstance.get_all_properties()
         .then(properties => res.status(200).send(properties))
         .catch(err => {
-            console.error(`Error retrieving all properties: ${err}.`);
+            console.error('Error retrieving all properties.');
             res.send(err);
         });
 });
@@ -17,7 +17,7 @@ dashboardRouter.get('/filter_properties/:filter', (req, res) => {
     dbInstance.filter_properties(req.params.filter)
         .then(properties => res.status(200).send(properties))
         .catch(err => {
-            console.error(`Error retrieving filtered properties: ${err}.`);
+            console.error('Error retrieving filtered properties.');
             res.send(err);
         });
 });
@@ -27,7 +27,7 @@ dashboardRouter.delete('/delete_property/:id', (req, res) => {
     dbInstance.delete_property([req.params.id])
         .then( () => res.status(200).send())
         .catch(err => {
-            console.error(`Error deleting property: ${err}.`);
+            console.error('Error deleting property.');
             res.send(err);
         });
 });
