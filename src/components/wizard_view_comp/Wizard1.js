@@ -54,7 +54,7 @@ class Wizard1 extends React.Component {
               />
 
           <div className="form-label">Property Description</div>
-              <input 
+              <textarea rows="4" 
                 className="wizard-input-big" 
                 id="propertyDescription"
                 type="text"
