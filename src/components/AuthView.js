@@ -12,10 +12,11 @@ import { GET_LOGIN } from '../actions/action';
  class AuthView extends Component {
   constructor(props){
     super(props);
+    this.submit = this.submit.bind(this);
   }
 
   submit(e) {
-    this.props.GET_LOGIN
+    this.props.GET_LOGIN(this.refs.username.value, this.refs.password.value);
   }
 
 
@@ -26,13 +27,13 @@ import { GET_LOGIN } from '../actions/action';
         <img className="auth-logo" src={AuthLogo} />
         <form>
           <div className="form-label">Username</div>
-              <input className="auth-type" type = "text" required/>
+              <input ref="username"  className="auth-type" type = "text" required/>
 
           <div className="form-label">Password</div>
-              <input className="auth-type" type = "password" required/>
+              <input ref="password" className="auth-type" type = "password" required/>
 
           <div className="button-set">
-            <button className="login-btn"><Link to="/dashboard">Login</Link></button>
+            <button onClick={() => {this.submit()}} className="login-btn"><Link to="/dashboard">Login</Link></button>
             <button className="reg-btn"><Link to="/dashboard">Register</Link> </button>
           </div>
           
@@ -48,7 +49,7 @@ function mapStateToProps({ userNamePassword }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ GET_LOGIN })
+  return bindActionCreators({ GET_LOGIN }, dispatch)
 }
 
 
