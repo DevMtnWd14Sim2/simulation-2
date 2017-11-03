@@ -21,8 +21,8 @@ export default class Register extends React.Component {
               <div className="home-listing">
               <div className="property-picture"> </div>
               <div className="property-name"> 
-                <p>Name</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus  </p>
+                <h2>Name</h2>
+                <p>"Sed ut perspiciatis unde omnis iste natus </p>
               </div>
               <div className="property-name"> 
               </div>

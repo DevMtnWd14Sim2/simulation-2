@@ -215,6 +215,12 @@ header {
 .property-name {
   padding-left: 10px; }
 
+.property-name h1 {
+  font-weight: bold; }
+
+.property-name p {
+  font-weight: normal; }
+
 .divider-listing {
   display: flex;
   margin-top: auto;
@@ -228,7 +234,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 292px; }
+  width: 292px;
+  font-weight: bold; }
 
 .step-header {
   display: flex;

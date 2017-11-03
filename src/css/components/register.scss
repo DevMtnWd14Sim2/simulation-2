@@ -97,8 +97,15 @@
 }
 
 .property-name {
-    padding-left:10px;
-    
+    padding-left:10px;   
+}
+
+.property-name h1 {
+    font-weight: bold;
+}
+
+.property-name p {
+    font-weight: normal;
 }
 
 
@@ -117,6 +124,7 @@
     flex-direction: column;
     justify-content: center;
     width: 292px;
+    font-weight: bold;
     
 }
 
