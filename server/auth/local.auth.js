@@ -77,3 +77,7 @@ passport.deserializeUser((user, done) => {
             return done({message: 'Error in deserializing user.'});
         });
 });
+
+module.exports = {
+    passport
+}
