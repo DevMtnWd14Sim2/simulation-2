@@ -60,6 +60,7 @@ import { authenticateUser,  registerUser } from '../services/auth.services';
 
           <div className="button-set">
 
+
           <button type="submit" className="login-btn">Login</button> 
           <button type="submit" className="reg-btn">Register</button> 
 
