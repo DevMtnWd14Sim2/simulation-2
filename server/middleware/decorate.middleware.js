@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cors = require('cors');
 const session = require('express-session');
-const passport = require('passport');
+const { passport } = require('../auth/local.auth');
 
 function decorate(app) {
     app.use(bodyParser.json());
