@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Register from './dashboard_comp/Register';
 
-import { HashRouter, Switch, Route } from 'react-router-dom';
-
-
 // import { getAllProperties, filterProperties, deleteProperty } from '../services/dashboard.services';
 
 

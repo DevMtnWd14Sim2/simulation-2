@@ -95,9 +95,7 @@ header {
   height: 40px;
   background-color: #80EA9B;
   border-style: none;
-  text-decoration: none; }
-
-.login-btn a {
+  text-decoration: none;
   font-size: 14px;
   color: black;
   font-style: normal;
@@ -110,9 +108,7 @@ header {
   background-color: #3b5249;
   border-style: none;
   text-decoration: none;
-  color: white; }
-
-.reg-btn a {
+  color: white;
   font-size: 14px;
   color: white;
   font-style: normal;
@@ -196,6 +192,43 @@ header {
   text-decoration: none;
   color: black; }
 
+.home-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 735px; }
+
+.home-listing {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 735px;
+  max-height: 150px;
+  background: lightgrey; }
+
+.property-picture {
+  width: 150px;
+  height: 150px;
+  background: slategray; }
+
+.property-name {
+  padding-left: 10px; }
+
+.divider-listing {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 135px;
+  width: 1px;
+  background: black; }
+
+.property-value {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 292px; }
+
 .step-header {
   display: flex;
   justify-content: space-between;
@@ -205,9 +238,7 @@ header {
   background-color: #3b5249;
   border-style: none;
   padding: 10px 30px;
-  border-radius: 3px; }
-
-.drk-btn a {
+  border-radius: 3px;
   font-size: 20px;
   color: white;
   font-style: normal;
@@ -218,9 +249,7 @@ header {
   border-style: none;
   padding: 10px 30px;
   border-radius: 3px;
-  text-decoration: none; }
-
-.light-btn a {
+  text-decoration: none;
   font-size: 20px;
   color: #3d3d3d;
   font-style: normal;
