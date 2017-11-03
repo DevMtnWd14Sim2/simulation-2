@@ -6,7 +6,7 @@ function createProperty(property) {
         .post(`${baseURL}/create_property`, property)
         .then(res => res)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             res.send(err);
         });
 }

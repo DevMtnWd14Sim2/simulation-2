@@ -1,7 +1,6 @@
 const chalk = require('chalk');
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
-const createHash = require('../utils/hash.utils');
 const getDb = require('../database/bootstrap.database');
 
 passport.use('login', new Strategy(
@@ -24,39 +23,6 @@ passport.use('login', new Strategy(
             .catch(err => {
                 console.error('Error with login.');
                 return done(err, false, {message: 'Error with login.'});
-            });
-    }
-));
-
-passport.use('register', new Strategy(
-    (username, password, done) => {
-        const db = getDb();
-        db.users
-            .findOne({username})
-            .then(user => {
-                if (user) {
-                    console.error('That username already exists.');
-                    return done({message: 'That username already exists.'});
-                }
-                else {
-                    const newUser = new User();
-                    newUser.username = username;
-                    newUser.password = createHash(password);
-                    db.users
-                        .save(newUser)
-                        .then( () => {
-                            console.log(chalk.green('Registration was successful!'));
-                            return done(null, newUser, {message: 'Registration was successful!'});
-                        })
-                        .catch(err => {
-                            console.error('Error in saving new user.');
-                            return done({message: 'Error in saving new user.'});
-                        });
-                }
-            })
-            .catch(err => {
-                console.error('Error with registration.');
-                return done({message: 'Error with registration.'});
             });
     }
 ));

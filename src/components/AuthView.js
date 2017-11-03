@@ -10,10 +10,11 @@ export default class AuthView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'darthvader@yahoo.com',
-      password: 'deathstarrox'
+      username: 'james@gmail.com',
+      password: 'yak'
     };
     this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
   }
 
   login() {
@@ -27,7 +28,23 @@ export default class AuthView extends Component {
         return res;
       })
       .catch(err => {
-        console.error('login was NOT successful');
+        console.error('login was NOT successful.');
+        throw err;
+      });
+  }
+
+  register() {
+    const userObject = {...this.state};
+    registerUser(userObject)
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          alert('Registration successful! Try logging in now.');
+        }
+        return res;
+      })
+      .catch(err => {
+        console.error('registration was NOT successful.');
         throw err;
       });
   }
@@ -46,7 +63,7 @@ export default class AuthView extends Component {
 
           <div className="button-set">
             <span className="login-btn" onClick={this.login}>Login</span>
-            <button className="reg-btn">Register</button>
+            <span className="reg-btn" onClick={this.register}>Register</span>
           </div>
           
         </form>

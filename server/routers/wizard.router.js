@@ -11,7 +11,7 @@ wizardRouter.post('/create_property', (req, res) => {
     dbInstance.create_property([name, description, address, city, state, zip, image_url, loan_amnt, month_mortgage, desired_rent])
         .then( () => res.status(200).send())
         .catch(err => {
-            console.error(`Error when creating property: ${err}.`);
+            console.error('Error when creating property.');
             res.send(err);
         });
 });
