@@ -192,6 +192,43 @@ header {
   text-decoration: none;
   color: black; }
 
+.home-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 735px; }
+
+.home-listing {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 735px;
+  max-height: 150px;
+  background: lightgrey; }
+
+.property-picture {
+  width: 150px;
+  height: 150px;
+  background: slategray; }
+
+.property-name {
+  padding-left: 10px; }
+
+.divider-listing {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 135px;
+  width: 1px;
+  background: black; }
+
+.property-value {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 292px; }
+
 .step-header {
   display: flex;
   justify-content: space-between;
