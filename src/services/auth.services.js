@@ -6,7 +6,7 @@ function authenticateUser(userObject) {
         .post(`${baseURL}/login`, userObject)
         .then(res => res)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             throw err;
         });
 }
@@ -16,7 +16,7 @@ function registerUser(userObject) {
         .post(`${baseURL}/register`, userObject)
         .then(res => res)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             throw err
         });
 }

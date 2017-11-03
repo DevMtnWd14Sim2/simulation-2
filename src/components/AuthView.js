@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AuthLogo from '../img/svg/houser-auth-logo.svg';
 import { Link, withRouter } from 'react-router-dom';
 
-// import { authenticateUser,  registerUser } from '../services/auth.services';
+import { authenticateUser,  registerUser } from '../services/auth.services';
 
 
  class AuthView extends React.Component {
@@ -59,8 +59,10 @@ import { Link, withRouter } from 'react-router-dom';
               />
 
           <div className="button-set">
+
           <button type="submit" className="login-btn">Login</button> 
           <button type="submit" className="reg-btn">Register</button> 
+
           </div>
           
         </form>

@@ -6,7 +6,7 @@ function getAllProperties() {
         .get(`${baseURL}/get_all_properties`)
         .then(properties => properties)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             throw err;
         });
 }
@@ -16,7 +16,7 @@ function filterProperties(filter) {
         .get(`${baseURL}/filter_properties/:${filter}`)
         .then(properties => properties)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             throw err;
         });
 }
@@ -26,7 +26,7 @@ function deleteProperty(id) {
         .delete(`${baseURL}/delete_property/:${id}`)
         .then(res => res)
         .catch(err => {
-            console.error(`Error connecting to server: ${err}.`);
+            console.error('Error connecting to server.');
             throw err;
         });
 }

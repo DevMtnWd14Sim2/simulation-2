@@ -70,7 +70,7 @@ class Wizard3 extends React.Component {
 
         
         <div className="step__btn_container">
-        <Link to="/wizard/2"><button className="drk-btn"> Previous Step </button></Link> 
+            <Link to="/wizard/2"><button className="drk-btn"> Previous Step </button></Link> 
             <button className="drk-btn">Next Step</button>
         </div>
              
