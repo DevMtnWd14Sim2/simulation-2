@@ -1,14 +1,10 @@
 const express = require('express');
-const passport = require('passport');
+const { passport } = require('../auth/local.auth');
 const authRouter = express.Router();
 
-authRouter.post('/login',
-    passport.authenticate('login', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true,
-    })
-);
+authRouter.post('/login', passport.authenticate('login'), (req, res) => {
+    res.send({message: 'Login was successful!'});
+});
 
 authRouter.post('/register',
     passport.authenticate('register', {
