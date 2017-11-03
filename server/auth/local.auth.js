@@ -14,7 +14,7 @@ passport.use('login', new Strategy(
                     console.error('That username does not exist');
                     return done({message: 'That username does not exist.'});
                 }
-                if (!user.verifyPassword(password)) {
+                if (user.password !== password) {
                     console.error('That password is incorrect.');
                     return done({message: 'That password is incorrect.'});
                 }

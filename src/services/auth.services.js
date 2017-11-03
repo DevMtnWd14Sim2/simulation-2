@@ -1,5 +1,5 @@
 const axios = require('axios');
-const baseURL = '/api/auth';
+const baseURL = 'http://localhost:8080/api/auth';
 
 function authenticateUser(userObject) {
     return axios
