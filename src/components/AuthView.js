@@ -12,10 +12,24 @@ import { GET_LOGIN } from '../actions/action';
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      username: '',
+      password: '',
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
     this.props.GET_LOGIN(this.refs.username.value, this.refs.password.value);
+  }
+
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
   }
 
 

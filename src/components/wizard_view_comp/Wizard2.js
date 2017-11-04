@@ -11,6 +11,13 @@ class Wizard2 extends React.Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
@@ -21,6 +28,16 @@ class Wizard2 extends React.Component {
       zip: this.refs.zip.value
     }, false);
   }
+
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
+  }
+
   render() {
     
     return (

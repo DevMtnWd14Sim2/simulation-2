@@ -11,6 +11,10 @@ class Wizard5 extends React.Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      desiredRent: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
@@ -18,6 +22,15 @@ class Wizard5 extends React.Component {
     this.props.POST_NEW_PROPERTY({ 
       desired_rent: this.refs.rent.value, 
     }, true);
+  }
+
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
   }
 
   render() {
