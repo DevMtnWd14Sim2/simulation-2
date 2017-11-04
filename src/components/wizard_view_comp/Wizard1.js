@@ -1,35 +1,21 @@
 import React, { Component } from 'react';
 import StepProgress0 from '../../img/svg/circle-progress-0.svg';
 import StepProgress1 from '../../img/svg/circle-progress-1.svg';
-import { withRouter } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { POST_NEW_PROPERTY } from '../../actions/action';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class Wizard1 extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      propertyName: "",
-      propertyDescription: ""
-    }
-    this.handleNext = this.handleNext.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    
-  }
-  handleNext(e){
-    e.preventDefault()
-    this.props.history.push("/wizard/2")
-    console.log(this.props.history)
+  constructor(props){
+    super(props);
+    this.submit = this.submit.bind(this);
   }
 
-  handleInputChange(e){
-    e.preventDefault()  
-    const key = e.target.id 
-    const value = e.target.value
-    this.setState({
-      [key]: value
-    })
-    console.log(this.state)
-    
+  submit(e) {
+    this.props.POST_NEW_PROPERTY({ name: this.refs.propertyName.value, description: this.refs.propertyDescription.value}, false);
   }
+
   render() {
     return (
       <div className="wizard-view-container">
@@ -45,6 +31,7 @@ class Wizard1 extends React.Component {
         <form onSubmit={this.handleNext}>
           <div className="form-label">Property Name</div>
               <input 
+                ref="propertyName"
                 className="wizard-input-long"
                 id="propertyName"
                 type="text" 
@@ -55,6 +42,7 @@ class Wizard1 extends React.Component {
 
           <div className="form-label">Property Description</div>
               <textarea rows="4" 
+                ref="propertyDescription"
                 className="wizard-input-big" 
                 id="propertyDescription"
                 type="text"
@@ -62,10 +50,9 @@ class Wizard1 extends React.Component {
                 onChange={this.handleInputChange}
                 required
                 />
-        
 
         <div className="step__btn_container">
-            <button type="submit" className="drk-btn" >Next Step</button>
+            <button type='submit' onClick={() => {this.submit()}} className="drk-btn" ><Link to="/wizard/2"> Next Step</Link> </button>
         </div>
 
         
@@ -77,4 +64,9 @@ class Wizard1 extends React.Component {
   }
 }
 
-export default withRouter(Wizard1);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(Wizard1);

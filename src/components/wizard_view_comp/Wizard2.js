@@ -2,35 +2,24 @@ import React, { Component } from 'react';
 import StepProgress0 from '../../img/svg/circle-progress-0.svg';
 import StepProgress1 from '../../img/svg/circle-progress-1.svg';
 import StepProgress2 from '../../img/svg/circle-progress-2.svg';
-import { withRouter, Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { POST_NEW_PROPERTY } from '../../actions/action';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class Wizard2 extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      address: "",
-      city: "",
-      State: "",
-      zip: ""
-    }
-    this.handleNext = this.handleNext.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    
-  }
-  handleNext(e){
-    e.preventDefault()
-    this.props.history.push("/wizard/3")
-    console.log(this.props.history)
+  constructor(props){
+    super(props);
+    this.submit = this.submit.bind(this);
   }
 
-  handleInputChange(e){
-    e.preventDefault()  
-    const key = e.target.id 
-    const value = e.target.value
-    this.setState({
-      [key]: value
-    })
-    console.log(this.state)
+  submit(e) {
+    this.props.POST_NEW_PROPERTY({ 
+      address: this.refs.address.value, 
+      city: this.refs.city.value,
+      state: this.refs.state.value,
+      zip: this.refs.zip.value
+    }, false);
   }
   render() {
     
@@ -48,6 +37,7 @@ class Wizard2 extends React.Component {
         <form onSubmit={this.handleNext}>
         <div className="form-label">Address</div>
               <input 
+                ref="address" 
                 className="wizard-input-long" 
                 id="address"
                 type = "text" 
@@ -60,6 +50,7 @@ class Wizard2 extends React.Component {
           <div className="form-input-container">
             <div className="form-label">City</div>
             <input 
+              ref="city" 
               className="wizard-input-short" 
               id="city"
               type="text" 
@@ -70,7 +61,8 @@ class Wizard2 extends React.Component {
           </div>
           <div className="form-input-container">
             <div className="form-label">State</div>
-            <input 
+            <input
+              ref="state"  
               className="wizard-input-short" 
               id="State"
               type="text"
@@ -80,10 +72,10 @@ class Wizard2 extends React.Component {
             />
           </div>
         </div>  
-
  
         <div className="form-label">Zip</div>
               <input 
+                ref="zip" 
                 className="wizard-input-short"
                 id="zip"
                 type="number" 
@@ -93,7 +85,7 @@ class Wizard2 extends React.Component {
                 />   
         <div className="step__btn_container">
             <Link to="/wizard/1"><button type="submit" className="drk-btn">Previous Step</button></Link>
-            <button type="submit" className="drk-btn"> Next Step</button>
+            <button type="submit" onClick={() => {this.submit()}} className="drk-btn"> <Link to="/wizard/3"> Next Step </Link> </button>
         </div>
              
         </form>
@@ -104,4 +96,8 @@ class Wizard2 extends React.Component {
   }
 }
 
-export default withRouter(Wizard2);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Wizard2);

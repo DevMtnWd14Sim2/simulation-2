@@ -1,37 +1,24 @@
 import React, { Component } from 'react';
-
 import AuthLogo from '../img/svg/houser-auth-logo.svg';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { GET_LOGIN } from '../actions/action';
 
-import { authenticateUser,  registerUser } from '../services/auth.services';
 
+// import { authenticateUser,  registerUser } from '../services/auth.services';
 
- class AuthView extends React.Component {
-
-  constructor(){
-    super()
-    this.state = {
-      username: "",
-      password: ""
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    
-  }
-  handleSubmit(e){
-    e.preventDefault()
-    this.props.history.push("/dashboard")
-  
+ class AuthView extends Component {
+  constructor(props){
+    super(props);
+    this.submit = this.submit.bind(this);
   }
 
-  handleInputChange(e){
-    e.preventDefault()  
-    const key = e.target.id 
-    const value = e.target.value
-    this.setState({
-      [key]: value
-    })
+  submit(e) {
+    this.props.GET_LOGIN(this.refs.username.value, this.refs.password.value);
   }
+
+
   render() {
     return (
       <div className="auth-view-container">
@@ -40,6 +27,7 @@ import { authenticateUser,  registerUser } from '../services/auth.services';
         <form onSubmit={this.handleSubmit}>
           <div className="form-label">Username</div>
               <input 
+                ref="username" 
                 id="username"
                 value={this.state.username}
                 className="auth-type" 
@@ -50,6 +38,7 @@ import { authenticateUser,  registerUser } from '../services/auth.services';
 
           <div className="form-label">Password</div>
               <input 
+                ref="password" 
                 id="password"
                 value={this.state.password}
                 className="auth-type" 
@@ -61,8 +50,8 @@ import { authenticateUser,  registerUser } from '../services/auth.services';
           <div className="button-set">
 
 
-          <button type="submit" className="login-btn">Login</button> 
-          <button type="submit" className="reg-btn">Register</button> 
+          <button type="submit" onClick={() => {this.submit()}} className="login-btn"><Link to="/dashboard">Login</Link></button> 
+          <button type="submit" className="reg-btn"><Link to="/dashboard">Register</Link> </button>
 
           </div>
           
@@ -73,4 +62,12 @@ import { authenticateUser,  registerUser } from '../services/auth.services';
   }
 }
 
-export default withRouter(AuthView)
+function mapStateToProps({ userNamePassword }) {
+  return { userNamePassword };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ GET_LOGIN }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthView);
