@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import AuthLogo from '../img/svg/houser-auth-logo.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { GET_LOGIN } from '../actions/action';
 
 
-import { authenticateUser,  registerUser } from '../services/auth.services';
+// import { authenticateUser,  registerUser } from '../services/auth.services';
 
  class AuthView extends Component {
   constructor(props){
@@ -70,6 +69,5 @@ function mapStateToProps({ userNamePassword }) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ GET_LOGIN }, dispatch)
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthView);

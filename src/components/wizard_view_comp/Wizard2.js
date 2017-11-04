@@ -21,7 +21,6 @@ class Wizard2 extends React.Component {
       zip: this.refs.zip.value
     }, false);
   }
-
   render() {
     
     return (
@@ -97,10 +96,8 @@ class Wizard2 extends React.Component {
   }
 }
 
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
 }
-
 
 export default connect(null, mapDispatchToProps)(Wizard2);

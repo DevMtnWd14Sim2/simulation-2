@@ -41,8 +41,8 @@ class Wizard1 extends React.Component {
               />
 
           <div className="form-label">Property Description</div>
-              <textarea rows="4"
-                ref="propertyDescription"  
+              <textarea rows="4" 
+                ref="propertyDescription"
                 className="wizard-input-big" 
                 id="propertyDescription"
                 type="text"
@@ -50,10 +50,9 @@ class Wizard1 extends React.Component {
                 onChange={this.handleInputChange}
                 required
                 />
-        
 
         <div className="step__btn_container">
-        <button type="submit" onClick={() => {this.submit()}} className="drk-btn" ><Link to="/wizard/2"> Next Step</Link> </button>
+            <button type='submit' onClick={() => {this.submit()}} className="drk-btn" ><Link to="/wizard/2"> Next Step</Link> </button>
         </div>
 
         
@@ -64,7 +63,6 @@ class Wizard1 extends React.Component {
     );
   }
 }
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)

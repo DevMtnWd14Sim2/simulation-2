@@ -69,10 +69,8 @@ class Wizard4 extends React.Component {
   }
 }
 
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
 }
-
 
 export default connect(null, mapDispatchToProps)(Wizard4);
