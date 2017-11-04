@@ -32,7 +32,7 @@ class Wizard4 extends React.Component {
           <img className="animateOrb" src ={StepProgress1} />
           <img src ={StepProgress0} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
         
 
         <div className="form-label">Loan Amount</div>
@@ -40,13 +40,30 @@ class Wizard4 extends React.Component {
 
         <div className="form-label">Monthly Mortage</div>
               <input ref="mortgage" className="wizard-input-long" type = "text" required/>
+              <input 
+                ref="loanAmount"
+                className="wizard-input-long"
+                id="loanAmount"
+                type = "number"
+                value={this.state.loanAmount}
+                onChange={this.handleInputChange}
+                required
+              />
 
-
-
+        <div className="form-label">Monthly Mortage</div>
+              <input 
+                ref="mortgage"
+                className="wizard-input-long" 
+                id="monthlyMortage"
+                type = "number"
+                value={this.state.monthlyMortage} 
+                onChange={this.handleInputChange}
+                required
+              />
         
         <div className="step__btn_container">
-            <button className="drk-btn"><Link to="/wizard/3"> Previous Step </Link> </button>
-            <button onClick={() => {this.submit()}} className="drk-btn"><Link to="/wizard/5"> Next Step </Link> </button>
+            <Link to="/wizard/3"><button className="drk-btn">Previous Step</button></Link>
+            <button type='submit' onClick={() => {this.submit()}} className="drk-btn"><Link to="/wizard/5"> Next Step </Link> </button>
         </div>
              
         </form>
@@ -56,10 +73,8 @@ class Wizard4 extends React.Component {
   }
 }
 
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
 }
-
 
 export default connect(null, mapDispatchToProps)(Wizard4);
