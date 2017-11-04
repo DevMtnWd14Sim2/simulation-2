@@ -11,6 +11,11 @@ class Wizard4 extends React.Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      loanAmount: '',
+      monthlyMortage: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
@@ -18,6 +23,15 @@ class Wizard4 extends React.Component {
       loan_amnt: this.refs.loanAmount.value, 
       month_mortgage: this.refs.mortgage.value
     }, false);
+  }
+
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
   }
 
   render() {

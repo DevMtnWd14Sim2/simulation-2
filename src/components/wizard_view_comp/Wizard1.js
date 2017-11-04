@@ -10,10 +10,24 @@ class Wizard1 extends React.Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      propertyName: '',
+      propertyDescription: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
     this.props.POST_NEW_PROPERTY({ name: this.refs.propertyName.value, description: this.refs.propertyDescription.value}, false);
+  }
+
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
   }
 
   render() {

@@ -11,6 +11,10 @@ class Wizard3 extends React.Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      imageURL: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   submit(e) {
@@ -19,6 +23,14 @@ class Wizard3 extends React.Component {
     }, false);
   }
 
+  handleInputChange(e) {
+    e.preventDefault()
+    const key = e.target.id
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    });
+  }
 
   render() {
     return (
