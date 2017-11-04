@@ -7,9 +7,10 @@
 .form-body{
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
-    max-width: 850px;
-    padding: 20px;
-    height: 100vh;
+    min-height: 900px;
+    max-width: 719px;
+    height: 100%;
+    background: linear-gradient(180deg,#e2f3ea,#fff);; 
+    padding: 20px
 }
 

@@ -2,9 +2,34 @@ import React, { Component } from 'react';
 import StepProgress0 from '../../img/svg/circle-progress-0.svg';
 import StepProgress1 from '../../img/svg/circle-progress-1.svg';
 import StepProgress2 from '../../img/svg/circle-progress-2.svg';
-import { Link, Route } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Wizard5 extends React.Component {
+class Wizard5 extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      desiredRent: ""
+    }
+    this.handleNext = this.handleNext.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    
+  }
+  handleNext(e){
+    e.preventDefault()
+    this.props.history.push("/dashboard")
+    console.log(this.props.history)
+  }
+
+  handleInputChange(e){
+    e.preventDefault()  
+    const key = e.target.id 
+    const value = e.target.value
+    this.setState({
+      [key]: value
+    })
+    console.log(this.state)
+    
+  }
   render() {
     return (
       <div className="wizard-view-container">
@@ -17,18 +42,25 @@ export default class Wizard5 extends React.Component {
           <img src ={StepProgress2} />
           <img className="animateOrb" src ={StepProgress1} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
         
 
         <div className="form-label">Desired Rent</div>
-              <input className="wizard-input-long" type = "text" required/>
+              <input 
+                className="wizard-input-long" 
+                type = "number" 
+                id="desiredRent"
+                value={this.state.desiredRent}
+                onChange={this.handleInputChange}
+                required
+                />
 
 
 
         
         <div className="step__btn_container">
-            <button className="drk-btn"><Link to="/wizard/4"> Previous Step </Link> </button>
-            <button className="light-btn"><Link to="/dashboard"> Complete </Link> </button>
+            <Link to="/wizard/4"><button className="drk-btn"> Previous Step  </button></Link>
+            <button type="submit" className="light-btn">Complete</button>
         </div>
              
         </form>
@@ -37,3 +69,5 @@ export default class Wizard5 extends React.Component {
     );
   }
 }
+
+export default withRouter(Wizard5);
