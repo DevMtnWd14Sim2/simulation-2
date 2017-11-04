@@ -5,7 +5,7 @@ const { passport } = require('../auth/local.auth');
 const authRouter = express.Router();
 
 authRouter.post('/login', passport.authenticate('login'), (req, res) => {
-    res.send({message: 'Login was successful!'});
+    res.send(req.user);
 });
 
 authRouter.post('/register', (req, res) => {

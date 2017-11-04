@@ -18,17 +18,17 @@ passport.use('login', new Strategy(
                     return done({message: 'That password is incorrect.'});
                 }
                 console.log(chalk.green('Login was successful!'));
-                return done(null, user, {message: 'Login was successful.'});
+                return done(null, user);
             })
             .catch(err => {
                 console.error('Error with login.');
-                return done(err, false, {message: 'Error with login.'});
+                return done(err, false);
             });
     }
 ));
 
 passport.serializeUser((user, done) => {
-    return done(null, user.id, {message: 'User has been serialized.'});
+    return done(null, user.id);
 });
 
 passport.deserializeUser((user, done) => {
@@ -36,7 +36,7 @@ passport.deserializeUser((user, done) => {
     db.users
         .findOne({id})
         .then(user => {
-            return done(null, user, {message: 'User has been deserialized'});
+            return done(null, user);
         })
         .catch(err => {
             console.error('Error in deserializing user.');
