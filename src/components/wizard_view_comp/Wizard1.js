@@ -28,16 +28,32 @@ class Wizard1 extends React.Component {
           <img src ={StepProgress0} />
           <img src ={StepProgress0} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
           <div className="form-label">Property Name</div>
-              <input ref="propertyName" className="wizard-input-long" type = "text" required/>
+              <input 
+                ref="propertyName"
+                className="wizard-input-long"
+                id="propertyName"
+                type="text" 
+                value={this.state.propertyName}
+                onChange={this.handleInputChange}
+                required
+              />
 
           <div className="form-label">Property Description</div>
-              <input ref="propertyDescription" className="wizard-input-big" type = "text" required/>
+              <textarea rows="4"
+                ref="propertyDescription"  
+                className="wizard-input-big" 
+                id="propertyDescription"
+                type="text"
+                value={this.state.propertyDescription}
+                onChange={this.handleInputChange}
+                required
+                />
         
 
         <div className="step__btn_container">
-            <button onClick={() => {this.submit()}} className="drk-btn" ><Link to="/wizard/2"> Next Step</Link> </button>
+        <button type="submit" onClick={() => {this.submit()}} className="drk-btn" ><Link to="/wizard/2"> Next Step</Link> </button>
         </div>
 
         

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { GET_LOGIN } from '../actions/action';
 
 
-// import { authenticateUser,  registerUser } from '../services/auth.services';
+import { authenticateUser,  registerUser } from '../services/auth.services';
 
  class AuthView extends Component {
   constructor(props){
@@ -25,16 +25,35 @@ import { GET_LOGIN } from '../actions/action';
       <div className="auth-view-container">
         <div className="form-body-auth">
         <img className="auth-logo" src={AuthLogo} />
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-label">Username</div>
-              <input ref="username"  className="auth-type" type = "text" required/>
+              <input 
+                ref="username" 
+                id="username"
+                value={this.state.username}
+                className="auth-type" 
+                type = "text" 
+                required
+                onChange={this.handleInputChange}
+              />
 
           <div className="form-label">Password</div>
-              <input ref="password" className="auth-type" type = "password" required/>
+              <input 
+                ref="password" 
+                id="password"
+                value={this.state.password}
+                className="auth-type" 
+                type="password" 
+                required
+                onChange={this.handleInputChange}
+              />
 
           <div className="button-set">
-            <button onClick={() => {this.submit()}} className="login-btn"><Link to="/dashboard">Login</Link></button>
-            <button className="reg-btn"><Link to="/dashboard">Register</Link> </button>
+
+
+          <button type="submit" onClick={() => {this.submit()}} className="login-btn"><Link to="/dashboard">Login</Link></button> 
+          <button type="submit" className="reg-btn"><Link to="/dashboard">Register</Link> </button>
+
           </div>
           
         </form>

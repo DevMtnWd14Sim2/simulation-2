@@ -32,18 +32,23 @@ class Wizard5 extends React.Component {
           <img src ={StepProgress2} />
           <img className="animateOrb" src ={StepProgress1} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
         
 
         <div className="form-label">Desired Rent</div>
-              <input ref="rent" className="wizard-input-long" type = "text" required/>
-
-
-
-        
+              <input 
+                ref="rent"
+                className="wizard-input-long" 
+                type = "number" 
+                id="desiredRent"
+                value={this.state.desiredRent}
+                onChange={this.handleInputChange}
+                required
+                />
+       
         <div className="step__btn_container">
-            <button className="drk-btn"><Link to="/wizard/4"> Previous Step </Link> </button>
-            <button onClick={() => {this.submit()}} className="light-btn"><Link to="/dashboard"> Complete </Link> </button>
+            <Link to="/wizard/4"><button className="drk-btn"> Previous Step  </button></Link>
+            <button type="submit" onClick={() => {this.submit()}} className="light-btn"><Link to="/dashboard"> Complete </Link> </button>
         </div>
              
         </form>
@@ -52,7 +57,6 @@ class Wizard5 extends React.Component {
     );
   }
 }
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)

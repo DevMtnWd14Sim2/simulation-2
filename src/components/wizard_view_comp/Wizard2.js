@@ -23,6 +23,7 @@ class Wizard2 extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="wizard-view-container">
          <div className="input-container">
@@ -34,27 +35,58 @@ class Wizard2 extends React.Component {
           <img src ={StepProgress0} />
           <img src ={StepProgress0} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
         <div className="form-label">Address</div>
-              <input ref="address" className="wizard-input-long" type = "text" />
+              <input 
+                ref="address" 
+                className="wizard-input-long" 
+                id="address"
+                type = "text" 
+                value={this.state.address}
+                onChange={this.handleInputChange}
+                required
+              />
 
         <div className="form-label-combined">
           <div className="form-input-container">
             <div className="form-label">City</div>
-            <input ref="city" required className="wizard-input-short" type = "text" required/>
+            <input 
+              ref="city" 
+              className="wizard-input-short" 
+              id="city"
+              type="text" 
+              value={this.state.city}
+              onChange={this.handleInputChange}
+              required
+            />
           </div>
           <div className="form-input-container">
             <div className="form-label">State</div>
-            <input ref="state" required className="wizard-input-short" type = "text" required/>
+            <input
+              ref="state"  
+              className="wizard-input-short" 
+              id="State"
+              type="text"
+              value={this.state.State}
+              onChange={this.handleInputChange}
+              required
+            />
           </div>
         </div>  
-
  
         <div className="form-label">Zip</div>
-              <input ref="zip" className="wizard-input-short" type = "text" required/>   
+              <input 
+                ref="zip" 
+                className="wizard-input-short"
+                id="zip"
+                type="number" 
+                value={this.state.zip}
+                onChange={this.handleInputChange}
+                required
+                />   
         <div className="step__btn_container">
-            <button className="drk-btn"><Link to="/wizard/1"> Previous Step </Link> </button>
-            <button onClick={() => {this.submit()}} className="drk-btn"> <Link to="/wizard/3"> Next Step </Link> </button>
+            <Link to="/wizard/1"><button type="submit" className="drk-btn">Previous Step</button></Link>
+            <button type="submit" onClick={() => {this.submit()}} className="drk-btn"> <Link to="/wizard/3"> Next Step </Link> </button>
         </div>
              
         </form>

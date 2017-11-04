@@ -32,7 +32,7 @@ class Wizard3 extends React.Component {
           <img src ={StepProgress0} />
           <img src ={StepProgress0} />
         </div>
-        <form>
+        <form onSubmit={this.handleNext}>
         
 
         <div className="preview-image">
@@ -40,18 +40,25 @@ class Wizard3 extends React.Component {
         </div>
         
         <div className="form-label">Image URL</div>
-        <input ref="imageUrl" className="wizard-input-long" type = "text" required/>
+        <input 
+          ref="imageUrl"
+          className="wizard-input-long" 
+          id="imageURL"
+          value={this.state.imageURL}
+          onChange={this.handleInputChange}
+          type = "text" 
+          required
+        />
         <div className="form-label">Upload Picture</div>
         
 
-<input type="file" name="datafile" size="40" /> 
-
-
-
-
-        
+        <input type="file" 
+          name="datafile" 
+          size="40" 
+        /> 
+       
         <div className="step__btn_container">
-            <button className="drk-btn"><Link to="/wizard/2"> Previous Step </Link> </button>
+            <Link to="/wizard/2"><button className="drk-btn"> Previous Step </button></Link> 
             <button onClick={() => {this.submit()}} className="drk-btn"><Link to="/wizard/4"> Next Step </Link> </button>
         </div>
              
