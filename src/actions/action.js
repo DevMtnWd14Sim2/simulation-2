@@ -5,8 +5,10 @@ export const GET_USER_NAME_GET_PASSWORD = 'GET_USER_NAME';
 export const ADD_NEW_PROPERTY = 'ADD_NEW_PROPERTY';
 export const UPDATE_PROPNAME_DESCRIPTION = 'UPDATE_PROPNAME_DESCRIPTION'; 
 export const PROPERTY_HAS_BEEN_ADDED = 'PROPERTY_HAS_BEEN_ADDED';
+// export const ADDRESS_HAS_BEEN_ADDED = 'ADDRESS_HAS_BEEN_ADDED';
 
-const arr =[]
+let data ={}
+
 
 export function GET_LOGIN(NAME, PASSWORD) { 
     const URL = `${baseURL}/login/${ NAME }/${ PASSWORD }`;
@@ -20,15 +22,13 @@ export function GET_LOGIN(NAME, PASSWORD) {
 
 export function POST_NEW_PROPERTY(items, isComplete) {
     debugger
-    for(var x in items){
-        arr.push(items[x]);
-    }
+    data = Object.assign({}, data, items)
     if(isComplete){
         const newProperty = {};
         const request = axios({
             method: 'post',
-            url: '/api/wizard/create_property',
-            data: newProperty
+            url: 'http://localhost:8080/api/wizard/create_property',
+            data,
         });
         return {
             type: PROPERTY_HAS_BEEN_ADDED,
@@ -41,5 +41,3 @@ export function POST_NEW_PROPERTY(items, isComplete) {
     }
 
 }
-
-

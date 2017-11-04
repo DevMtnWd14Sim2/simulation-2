@@ -3,8 +3,23 @@ import StepProgress0 from '../../img/svg/circle-progress-0.svg';
 import StepProgress1 from '../../img/svg/circle-progress-1.svg';
 import StepProgress2 from '../../img/svg/circle-progress-2.svg';
 import { Link, Route } from 'react-router-dom';
+import { POST_NEW_PROPERTY } from '../../actions/action';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Wizard3 extends React.Component {
+class Wizard3 extends React.Component {
+  constructor(props){
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(e) {
+    this.props.POST_NEW_PROPERTY({ 
+      image_url: this.refs.imageUrl.value, 
+    }, false);
+  }
+
+
   render() {
     return (
       <div className="wizard-view-container">
@@ -25,7 +40,7 @@ export default class Wizard3 extends React.Component {
         </div>
         
         <div className="form-label">Image URL</div>
-        <input className="wizard-input-long" type = "text" required/>
+        <input ref="imageUrl" className="wizard-input-long" type = "text" required/>
         <div className="form-label">Upload Picture</div>
         
 
@@ -37,7 +52,7 @@ export default class Wizard3 extends React.Component {
         
         <div className="step__btn_container">
             <button className="drk-btn"><Link to="/wizard/2"> Previous Step </Link> </button>
-            <button className="drk-btn"><Link to="/wizard/4"> Next Step </Link> </button>
+            <button onClick={() => {this.submit()}} className="drk-btn"><Link to="/wizard/4"> Next Step </Link> </button>
         </div>
              
         </form>
@@ -46,3 +61,11 @@ export default class Wizard3 extends React.Component {
     );
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ POST_NEW_PROPERTY}, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(Wizard3);

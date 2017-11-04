@@ -13,8 +13,7 @@ class Wizard1 extends React.Component {
   }
 
   submit(e) {
-    debugger
-    this.props.POST_NEW_PROPERTY([this.refs.propertyName.value, this.refs.propertyDescription.value], false);
+    this.props.POST_NEW_PROPERTY({ name: this.refs.propertyName.value, description: this.refs.propertyDescription.value}, false);
   }
 
   render() {
