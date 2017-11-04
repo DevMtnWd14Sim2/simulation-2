@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { GET_LOGIN } from '../actions/action';
 
 
-// import { authenticateUser,  registerUser } from '../services/auth.services';
+import { authenticateUser,  registerUser } from '../services/auth.services';
 
  class AuthView extends Component {
   constructor(props){
